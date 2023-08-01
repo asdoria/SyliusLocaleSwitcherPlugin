@@ -1,0 +1,17 @@
+services:
+  asdoria_sylius_locale_switcher_plugin.controller.locale_switcher:
+    public: true
+    class: Asdoria\SyliusLocaleSwitcherPlugin\Controller\LocaleSwitcherController
+    decorates: 'sylius.controller.shop.locale_switch'
+    arguments:
+      $baseLocaleSwitchController: '@asdoria_sylius_locale_switcher_plugin.controller.locale_switcher.inner'
+      $templatingEngine: '@twig'
+      $localeContext: '@sylius.context.locale'
+      $localeProvider: '@sylius.locale_provider'
+      $metadataRegistry: '@sylius.resource_registry'
+      $requestStack: '@request_stack'
+      $requestConfigurationFactory: '@sylius.resource_controller.request_configuration_factory'
+      $singleResourceProvider: '@sylius.resource_controller.single_resource_provider'
+      $entityManager: '@doctrine.orm.entity_manager'
+      $channelContext: '@sylius.context.channel'
+      $gridProvider: '@sylius.grid.provider'
