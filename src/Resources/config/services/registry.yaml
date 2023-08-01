@@ -1,0 +1,7 @@
+services:
+
+  asdoria_sylius_locale_switcher_plugin.resource_guesser_service_registry:
+    class: Asdoria\SyliusLocaleSwitcherPlugin\Registry\ResourceGuesserServiceRegistry
+    # inject all services tagged with app.handler as first argument
+    # and use the value of the 'key' tag attribute to index the services
+    arguments: [ !tagged { tag: 'asdoria_sylius_locale_switcher_plugin.resource_guesser' } ]
