@@ -1,0 +1,7 @@
+services:
+  asdoria_sylius_locale_switcher_plugin.twig_extension.sluggable:
+    class: Asdoria\SyliusLocaleSwitcherPlugin\Twig\SluggableExtension
+    arguments:
+      $entityManager: '@doctrine.orm.entity_manager'
+    tags:
+      - { name: twig.extension }
