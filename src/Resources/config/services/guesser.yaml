@@ -1,18 +1,18 @@
 services:
-  Asdoria\SyliusLocaleSwitcherPlugin\Guesser\GridResourceGuesser:
+  Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Resource\GridResourceGuesser:
     arguments:
       $gridProvider: '@sylius.grid.provider'
       $parametersParser: '@sylius.resource_controller.parameters_parser'
     tags:
       - { name: 'asdoria_sylius_locale_switcher_plugin.resource_guesser' }
 
-  Asdoria\SyliusLocaleSwitcherPlugin\Guesser\RepositoryMethodResourceGuesser:
+  Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Resource\RepositoryMethodResourceGuesser:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
     tags:
       - { name: 'asdoria_sylius_locale_switcher_plugin.resource_guesser' }
 
-  Asdoria\SyliusLocaleSwitcherPlugin\Guesser\SlugResourceGuesser:
+  Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Resource\SlugResourceGuesser:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
       $localeContext: '@sylius.context.locale'

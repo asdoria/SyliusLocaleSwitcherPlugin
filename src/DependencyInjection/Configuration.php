@@ -24,6 +24,20 @@ class Configuration  implements ConfigurationInterface
 
         /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
+        $treeBuilder
+            ->getRootNode()
+                ->children()
+                ->arrayNode('aliases')
+                    ->prototype('array')
+                        ->children()
+                            ->arrayNode('routes')
+                                ->prototype('scalar')->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
+
         return $treeBuilder;
     }
 

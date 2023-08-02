@@ -13,6 +13,19 @@
 ## Installation
 
 1. run `composer require asdoria/sylius-locale-switcher-plugin`
+2. Add the bundle in `config/bundles.php`. You must put the  LocaleSwitcher Plugin line ABOVE TwigBundle
+
+```PHP
+Asdoria\SyliusLocaleSwitcherPlugin\AsdoriaSyliusLocaleSwitcherPlugin::class => ['all' => true],
+[...]
+Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
+```
+3. Import config in `config/packages/_sylius.yaml`
+```yaml
+imports:
+    - { resource: "@AsdoriaSyliusLocaleSwitcherPlugin/Resources/config/config.yaml"}
+```
+
  
  
 

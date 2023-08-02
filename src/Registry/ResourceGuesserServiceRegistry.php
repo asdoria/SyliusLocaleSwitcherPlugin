@@ -7,7 +7,7 @@ namespace Asdoria\SyliusLocaleSwitcherPlugin\Registry;
 
 use Sylius\Bundle\ResourceBundle\Controller\RequestConfiguration;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Model\ResourceGuesserInterface;
+use Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Resource\Model\ResourceGuesserInterface;
 /**
  * Class ResourceGuesserServiceRegistry
  * @package Asdoria\SyliusLocaleSwitcherPlugin\Registry

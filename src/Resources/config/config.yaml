@@ -1,0 +1,4 @@
+asdoria_sylius_locale_switcher:
+  aliases:
+    sylius.taxon:
+      routes: ['sylius_shop_product_index']

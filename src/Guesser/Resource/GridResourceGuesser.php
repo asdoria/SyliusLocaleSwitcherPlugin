@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Asdoria\SyliusLocaleSwitcherPlugin\Guesser;
+namespace Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Resource;
 
-use Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Model\ResourceGuesserInterface;
+use Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Resource\Model\ResourceGuesserInterface;
 use Sylius\Bundle\ResourceBundle\Controller\ParametersParserInterface;
 use Sylius\Bundle\ResourceBundle\Controller\RequestConfiguration;
 use Sylius\Component\Grid\Definition\Grid;
@@ -13,8 +13,9 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 
 /**
  * Class GridResourceGuesser
+ * @package Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Resource
  *
- * @author Philippe Vesin <pve.asdoria@gmail.com>
+ * @author  Philippe Vesin <pve.asdoria@gmail.com>
  */
 class GridResourceGuesser implements ResourceGuesserInterface
 {

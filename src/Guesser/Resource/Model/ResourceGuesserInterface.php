@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Model;
+namespace Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Resource\Model;
 
 use Sylius\Bundle\ResourceBundle\Controller\RequestConfiguration;
 use Sylius\Component\Resource\Model\ResourceInterface;
@@ -10,7 +10,7 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 
 /**
  * Interface ResourceGuesserInterface
- * @package Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Model
+ * @package Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Resource\Model
  *
  * @author  Philippe Vesin <pve.asdoria@gmail.com>
  */

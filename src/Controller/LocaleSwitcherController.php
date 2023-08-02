@@ -53,8 +53,9 @@ class LocaleSwitcherController
         $mainRequest = $this->requestStack->getMainRequest();
         $alias       = $request->query->get('_alias', null);
         $resource    = $this->getResource($alias, $mainRequest);
+        $template    = $request->query->get('template', '@SyliusShop/Menu/_localeSwitch.html.twig');
 
-        return new Response($this->templatingEngine->render('@SyliusShop/Header/_headerLocales.html.twig', [
+        return new Response($this->templatingEngine->render($template, [
             'active'       => $this->localeContext->getLocaleCode(),
             'locales'      => $this->localeProvider->getAvailableLocalesCodes(),
             'resource'     => $resource instanceof ResourceInterface ? $resource : null,

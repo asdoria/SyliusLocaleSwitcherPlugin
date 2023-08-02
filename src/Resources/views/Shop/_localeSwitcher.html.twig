@@ -1,2 +1,0 @@
-{% set alias = configuration.metadata.alias| default(null) %}
-{{ render(controller('asdoria_sylius_locale_switcher_plugin.controller.locale_switcher', {'route': currentRoute, 'routeParams': routeParams}, {'_alias': alias})) }}

@@ -1,0 +1,28 @@
+{% if locales|length > 1 %}
+    <div class="ui pointing dropdown link item" id="sylius-locale-selector" {{ sylius_test_html_attribute('locale-selector') }}>
+        <span class="text sylius-active-locale" {{ sylius_test_html_attribute('active-locale') }}>{{ active|sylius_locale_name }}</span>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+            {% for code in locales %}
+                {% set href = path('sylius_shop_homepage', {'_locale': code}) %}
+                {% if code is not same as(active) %}
+                    {% if _route is not empty %}
+                        {% set _route_params = {_locale: code} %}
+                        {% if _routeParams is iterable %}
+                            {% set _routeParams = _routeParams|merge(_route_params) %}
+                        {% endif %}
+                        {% if resource is defined and resource.slug is defined %}
+                            {% set _routeParams = _routeParams|merge({'slug': getSlugByLocale(resource, code)}) %}
+                        {% endif %}
+                        {% set href = path(_route, _routeParams) %}
+                    {% endif %}
+                    <a href="{{ path('sylius_shop_switch_locale', {'code': code, '_redirect': href}) }}"
+                       class="item sylius-available-locale {{ sylius_test_html_attribute('available-locale') }}">
+                        {{ code|sylius_locale_name }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
