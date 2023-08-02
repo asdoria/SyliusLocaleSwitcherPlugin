@@ -37,7 +37,18 @@ class AsdoriaSyliusLocaleSwitcherExtension extends Extension implements PrependE
 
         $aliases = $config['aliases'] ?? [];
 
-        $container->setParameter('asdoria_sylius_locale_switcher_plugin.aliases', $aliases);
+        $aliasMappingRoutes = [];
+        foreach ($aliases as $alias => $row) {
+            $routes = $row['routes'] ?? [];
+            foreach ($routes as $route) {
+                if (!empty($aliasMappingRoutes[$route])) {
+                    throw new \InvalidArgumentException(sprintf('the %s route has already been configured for alias mapping', $route));
+                }
+                $aliasMappingRoutes[$route] = $alias;
+            }
+        }
+
+        $container->setParameter('asdoria_sylius_locale_switcher_plugin.alias_mapping_routes', $aliasMappingRoutes);
 
         $loader->load('services.yaml');
     }
@@ -51,7 +62,7 @@ class AsdoriaSyliusLocaleSwitcherExtension extends Extension implements PrependE
     {
         $container->prependExtensionConfig('twig', [
             'globals' => [
-                'locale_switcher_aliases' => '%asdoria_sylius_locale_switcher_plugin.aliases%',
+                'locale_switcher_aliases' => '%asdoria_sylius_locale_switcher_plugin.alias_mapping_routes%',
             ],
         ]);
     }

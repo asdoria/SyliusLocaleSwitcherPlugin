@@ -1,8 +1,7 @@
 {% set alias = configuration.metadata.alias| default(null) %}
-{% if app.request.attributes.get('_route') in ['sylius_shop_product_index'] %}
-    {% set alias = 'sylius.taxon' %}
+{% if  currentRoute in locale_switcher_aliases|keys  %}
+    {% set alias = locale_switcher_aliases[currentRoute] %}
 {% endif %}
-
 {{ render(controller(
     'asdoria_sylius_locale_switcher_plugin.controller.locale_switcher',
     {'route': currentRoute, 'routeParams': routeParams},
