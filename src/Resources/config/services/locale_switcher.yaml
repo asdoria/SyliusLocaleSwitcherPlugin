@@ -1,0 +1,8 @@
+services:
+  asdoria_sylius_locale_switcher_plugin.shop.locale_switcher:
+    class: Asdoria\SyliusLocaleSwitcherPlugin\Locale\UrlBasedLocaleSwitcher
+    public: true
+    decorates: 'sylius.shop.locale_switcher'
+    arguments:
+      $inner: '@asdoria_sylius_locale_switcher_plugin.shop.locale_switcher.inner'
+      $urlGenerator: '@router'
