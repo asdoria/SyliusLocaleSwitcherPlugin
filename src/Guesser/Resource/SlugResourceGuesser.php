@@ -42,15 +42,24 @@ class SlugResourceGuesser implements ResourceGuesserInterface
         $repository = $this->entityManager->getRepository($class);
         $reflection = new \ReflectionMethod($repository, $this->method);
         $parameters = $reflection->getParameters();
-        $args = [$configuration->getRequest()->attributes->get('slug'), $this->localeContext->getLocaleCode()];
+
+        $slug = $configuration->getRequest()->attributes->get('slug');
+        if(empty($slug)) {
+            $slug = $configuration->getRequest()->query->get('route_params')['slug'];
+        }
+
+        $args = [$slug, $this->localeContext->getLocaleCode()];
         if (in_array('channel', array_column($parameters, 'name'))) {
             $args[] = $this->channelContext->getChannel();
         }
 
         $method = $this->method;
 
-        return $repository->$method(...$args);
-
+        try {
+            return $repository->$method(...$args);
+        } catch (\Throwable $exception) {
+            return null;
+        }
     }
 
     /**
