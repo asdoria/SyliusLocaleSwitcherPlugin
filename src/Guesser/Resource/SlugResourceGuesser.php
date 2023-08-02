@@ -8,6 +8,7 @@ namespace Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Resource;
 use Asdoria\SyliusLocaleSwitcherPlugin\Guesser\Resource\Model\ResourceGuesserInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Bundle\ResourceBundle\Controller\RequestConfiguration;
+use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
@@ -24,7 +25,8 @@ class SlugResourceGuesser implements ResourceGuesserInterface
 
     public function __construct(
         protected EntityManagerInterface $entityManager,
-        protected LocaleContextInterface $localeContext
+        protected LocaleContextInterface $localeContext,
+        protected ChannelContextInterface $channelContext
     ) {}
 
 

@@ -16,5 +16,6 @@ services:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
       $localeContext: '@sylius.context.locale'
+      $channelContext: '@sylius.context.channel'
     tags:
       - { name: 'asdoria_sylius_locale_switcher_plugin.resource_guesser' }
