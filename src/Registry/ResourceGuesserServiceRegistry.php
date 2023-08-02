@@ -52,5 +52,7 @@ class ResourceGuesserServiceRegistry implements ResourceGuesserServiceRegistryIn
             $resource = $item->getResource($configuration);
             if ($resource instanceof ResourceInterface) return $resource;
         }
+        
+        return null;
     }
 }
