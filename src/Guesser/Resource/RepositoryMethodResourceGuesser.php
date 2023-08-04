@@ -51,6 +51,6 @@ class RepositoryMethodResourceGuesser implements ResourceGuesserInterface
         /** @var RepositoryInterface $repository */
         $class      = $configuration->getMetadata()->getClass('model');
         $repository = $this->entityManager->getRepository($class);
-        return $repository instanceof RepositoryInterface;
+        return $repository instanceof RepositoryInterface && !empty($configuration->getRepositoryMethod());
     }
 }
