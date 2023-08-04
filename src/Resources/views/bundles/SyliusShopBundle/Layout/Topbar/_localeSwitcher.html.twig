@@ -1,9 +1,10 @@
 {% set alias = configuration.metadata.alias| default(null) %}
+{% set currentRoute = app.request.attributes.get('_route')|default('sylius_shop_homepage') %}
 {% if  currentRoute in locale_switcher_aliases|keys  %}
     {% set alias = locale_switcher_aliases[currentRoute] %}
 {% endif %}
 {{ render(controller(
     'asdoria_sylius_locale_switcher_plugin.controller.locale_switcher',
-    {'route': currentRoute, 'routeParams': routeParams},
+    {'route': currentRoute, 'routeParams': routeParams|default([])},
     {'_alias': alias}
 )) }}

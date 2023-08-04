@@ -1,6 +1,7 @@
 <p align="center">
 </p>
 
+![Asdoria Lgoo](doc/asdoria.jpg)
 
 <h1 align="center">Asdoria Locale Switcher Plugin</h1>
 
@@ -9,6 +10,8 @@
 ## Features
 
 + Change the locale of the store and don't redirect to home.
+
+![Locale switcher plugin](doc/presentation.gif)
 
 ## Installation
 
@@ -26,6 +29,10 @@ imports:
     - { resource: "@AsdoriaSyliusLocaleSwitcherPlugin/Resources/config/config.yaml"}
 ```
 
+4. Copy the template overrides from the bundle directory
  
- 
+ ```
+From: [shop_dir] vendor/asdoria/sylius-locale-switcher-plugin/src/Resources/views/bundles/SyliusShopBundle/*
+To: [shop_dir] templates/bundles/SyliusShopBundle/*
+ ```
 
