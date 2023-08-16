@@ -45,7 +45,7 @@ class SlugResourceGuesser implements ResourceGuesserInterface
 
         $slug = $configuration->getRequest()->attributes->get('slug');
         if(empty($slug)) {
-            $slug = $configuration->getRequest()->query->get('route_params')['slug'] ?? null;
+            $slug = $configuration->getRequest()->query->all('route_params')['slug'] ?? null;
         }
 
         $args = [$slug, $this->localeContext->getLocaleCode()];
