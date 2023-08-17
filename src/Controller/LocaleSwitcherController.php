@@ -40,7 +40,7 @@ class LocaleSwitcherController
 
     /**
      * @param string|null $route
-     * @param array       $routeParams
+     * @param array|null  $routeParams
      * @param Request     $request
      *
      * @return Response
@@ -48,7 +48,7 @@ class LocaleSwitcherController
      * @throws Error\RuntimeError
      * @throws Error\SyntaxError
      */
-    public function __invoke(?string $route = null , array $routeParams = [], Request $request): Response
+    public function __invoke(?string $route = null , ?array $routeParams = [], Request $request): Response
     {
         $mainRequest = $this->requestStack->getMainRequest();
         $alias       = $request->query->get('_alias', null);
