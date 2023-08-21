@@ -48,7 +48,7 @@ class LocaleSwitcherController
      * @throws Error\RuntimeError
      * @throws Error\SyntaxError
      */
-    public function __invoke(?string $route = null , ?array $routeParams = [], Request $request): Response
+    public function __invoke(?string $route = null , ?array $routeParams = null, Request $request): Response
     {
         $mainRequest = $this->requestStack->getMainRequest();
         $alias       = $request->query->get('_alias', null);
