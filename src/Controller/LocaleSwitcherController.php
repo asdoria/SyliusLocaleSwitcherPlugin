@@ -40,17 +40,17 @@ class LocaleSwitcherController
 
     /**
      * @param string|null $route
-     * @param array|null  $routeParams
-     * @param Request     $request
+     * @param array       $routeParams
      *
      * @return Response
      * @throws Error\LoaderError
      * @throws Error\RuntimeError
      * @throws Error\SyntaxError
      */
-    public function __invoke(?string $route = null , ?array $routeParams = null, Request $request): Response
+    public function __invoke(?string $route = null , array $routeParams = []): Response
     {
         $mainRequest = $this->requestStack->getMainRequest();
+        $request     = $this->requestStack->getCurrentRequest();
         $alias       = $request->query->get('_alias', null);
         $resource    = $this->getResource($alias, $mainRequest);
         $template    = $request->query->get('template', '@SyliusShop/Menu/_localeSwitch.html.twig');
